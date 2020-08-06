@@ -8,3 +8,6 @@ On root query, you can find all existing users, posts and a single user with an 
 <br/>
 Then you can query all users and their related posts or just one user and his/her related posts
 </div>
+<div>
+  You can use mutation to add new users and posts as well
+  </div>
