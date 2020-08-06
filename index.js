@@ -14,9 +14,12 @@ const {
   GraphQLNonNull,
 } = require("graphql");
 
+const { ApolloServer } = require("apollo-server-express");
+
 const cors = require("cors");
 
 const app = express();
+
 app.use(cors());
 
 //type
@@ -145,6 +148,10 @@ const schema = new GraphQLSchema({
   query: rootQueryType,
   mutation: rootMutationType,
 });
+
+const server = new ApolloServer({ schema });
+
+server.applyMiddleware({ app });
 
 app.use("/graphql", graphqlHTTP({ schema: schema, graphiql: true }));
 
