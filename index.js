@@ -151,9 +151,9 @@ const schema = new GraphQLSchema({
 
 const server = new ApolloServer({ schema });
 
-server.applyMiddleware({ app });
-
 app.use("/graphql", graphqlHTTP({ schema: schema, graphiql: true }));
+
+server.applyMiddleware({ app });
 
 mongoose
   .connect(process.env.MONGO_DB, {
